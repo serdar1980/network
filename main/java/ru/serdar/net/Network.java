@@ -2,6 +2,8 @@ package ru.serdar.net;
 import ru.serdar.device.Device;
 import ru.serdar.device.Active;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,8 +15,8 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 public class Network {
-    private Map<String, Device> devices;
-    private Set<Long> unicIp;
+    private Map<String, Device> devices = new HashMap<String, Device>();
+    private Set<Long> unicIp =new HashSet<Long>();
 
 
 

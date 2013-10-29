@@ -60,8 +60,8 @@ public class NetManager {
                                         d = new Router();
                                     }
                                     d.setName(m.group(2));
-                                    d.setDescription(m.group(3));
-                                    ((Active)d).setIpAddress(m.group(4));
+                                    d.setDescription(m.group(1)+" - "+m.group(2));
+                                    ((Active)d).setIpAddress(m.group(3));
                                     break;
                                 case HUB:
                                     d = new Hub();
