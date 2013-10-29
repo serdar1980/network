@@ -6,7 +6,7 @@ package ru.serdar.device;
  * Time: 14:36
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Switch extends Passive {
+public  class Switch extends Passive {
     @Override
     public void connectTo() {
         new RuntimeException("Method not impl");

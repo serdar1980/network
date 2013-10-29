@@ -8,7 +8,7 @@ package ru.serdar.device;
  * To change this template use File | Settings | File Templates.
  */
 public enum DeviceEnum {
-        PC("pc"), ROUTER("router"), SERVE("server"), HUB("hub"), SWITCH("switch");
+        PC("pc"), ROUTER("router"), SERVER("server"), HUB("hub"), SWITCH("switch");
 
         private String type;
 

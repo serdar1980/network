@@ -1,8 +1,6 @@
 package ru.serdar.manager;
 
-import ru.serdar.device.Device;
-import ru.serdar.device.DeviceEnum;
-import ru.serdar.device.PC;
+import ru.serdar.device.*;
 import ru.serdar.net.Network;
 
 import java.util.Scanner;
@@ -50,16 +48,35 @@ public class NetManager {
                     Pattern p = Pattern.compile("(.*);(.*);(.*)");
                     Matcher m = p.matcher(addDevice);
                         if(m.matches()){
+                            Device d=null;
                             switch (DeviceEnum.valueOf(m.group(1).toUpperCase())){
-                               case PC:
-                                   Device d = new PC();
-                                   d.setName(m.group(2));
-                                   d.setDescription(m.group(3));
-                               break;
+                                case PC:
+                                    d = new PC();
+                                case SERVER:
+                                    if(d == null)
+                                        d = new Server();
+                                case ROUTER:
+                                    if(d ==null){
+                                        d = new Router();
+                                    }
+                                    d.setName(m.group(2));
+                                    d.setDescription(m.group(3));
+                                    ((Active)d).setIpAddress(m.group(4));
+                                    break;
+                                case HUB:
+                                    d = new Hub();
+                                case SWITCH:
+                                    if(d == null){
+                                      d =new Switch();
+                                    }
+                                    d.setName(m.group(2));
+                                    d.setDescription(m.group(3));
+                                    break;
                                default:
                                    System.out.println("Can't fount this type ="+m.group(0));
                                break;
                             }
+                            manager.getNetwork().addElement(d);
 
                             for (int i=1; i<=m.groupCount(); i++)
                                 System.out.println(m.group(i));

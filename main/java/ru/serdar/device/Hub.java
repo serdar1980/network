@@ -7,7 +7,7 @@ package ru.serdar.device;
  * Time: 14:35
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Hub extends Passive {
+public  class Hub extends Passive {
     @Override
     public void connectTo() {
         new RuntimeException("Method not impl");
