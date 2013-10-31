@@ -2,7 +2,9 @@ package ru.serdar.manager;
 
 import ru.serdar.device.*;
 import ru.serdar.net.Network;
+import ru.serdar.utils.ApplicationProperty;
 
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,6 +29,8 @@ public class NetManager {
 
 
     public static void main (String ... agr){
+        Properties prop = ApplicationProperty.getInstance().getProperty();
+        System.out.println(prop.getProperty("mask"));
         NetManager manager= new NetManager();
         manager.setNetwork(new Network());
         final String INPUT = " put string type device;Name device;Ip device delimiter;";

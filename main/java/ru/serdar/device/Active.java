@@ -1,6 +1,5 @@
 package ru.serdar.device;
-import ru.serdar.device.Device;
-import ru.serdar.utils.IpConverter;
+import ru.serdar.utils.IpUtils;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,11 +16,11 @@ public abstract class Active extends Device {
     }
 
     public String getStringIpAddress() {
-        return IpConverter.longToIp(this.ipAddress);
+        return IpUtils.longToIp(this.ipAddress);
     }
 
     public void setIpAddress(String ipAddress) {
-        this.ipAddress = IpConverter.ipToLong(ipAddress);
+        this.ipAddress = IpUtils.ipToLong(ipAddress);
     }
 
 

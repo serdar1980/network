@@ -1,4 +1,6 @@
 package ru.serdar.utils;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 
 /**
  * Created with IntelliJ IDEA.
@@ -7,13 +9,25 @@ package ru.serdar.utils;
  * Time: 18:53
  * To change this template use File | Settings | File Templates.
  */
-public class IpConverter {
+public class IpUtils {
+
     public static void main(String[] args) {
         System.out.println(longToIp(Long.valueOf(args[0], 16)));
     }
 
     public static String toHex(String ipAddress) {
-        return Long.toHexString(IpConverter.ipToLong(ipAddress));
+        return Long.toHexString(IpUtils.ipToLong(ipAddress));
+    }
+
+    /** Converts IPv4 address to integer representation.
+     */
+    private static int addrToInt(Inet4Address i4addr)
+    {
+        byte[] ba = i4addr.getAddress();
+        return (ba[0]       << 24)
+                | ((ba[1]&0xFF) << 16)
+                | ((ba[2]&0xFF) << 8)
+                |  (ba[3]&0xFF);
     }
 
     public static long ipToLong(String ipAddress) {
